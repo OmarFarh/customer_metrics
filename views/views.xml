@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+
+    <record id="customer_metrics_action" model="ir.actions.act_window">
+      <field name="name">Customer Metrics</field>
+      <field name="res_model">res.partner.customer.metrics</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="customer_metrics_tree" model="ir.ui.view">
+      <field name="name">customer_metrics_tree</field>
+      <field name="model">res.partner.customer.metrics</field>
+      <field name="arch" type="xml">
+        <tree>
+          <header>
+            <button name="get_top_customers" type="object" string="Top Customers" class="btn-primary"/>
+          </header>
+          <field name="customer_id"/>
+          <field name="total_sales"/>
+          <field name="order_count"/>
+        </tree>
+      </field>
+    </record>
+
+    <menuitem id="root_customer_metrics_action" name="Top Customers" parent="sale.sale_menu_root" action="customer_metrics_action" sequence="10"/>
+  </data>
+</odoo>
